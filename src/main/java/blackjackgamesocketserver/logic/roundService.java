@@ -19,41 +19,220 @@ public class roundService {
         Arrays.asList(Suits.values()).forEach(suit ->
                 Arrays.asList(Cardvalues.values()).forEach(cardValue -> {
                             if (cardValue == Cardvalues.two){
-                                deckList.add(new Card(suit, cardValue, 2));
+                                switch (suit) {
+                                    case heart:
+                                        deckList.add(new Card(suit, cardValue, 2, "2H"));
+                                        break;
+                                    case club:
+                                        deckList.add(new Card(suit, cardValue, 2, "2C"));
+                                        break;
+                                    case diamond:
+                                        deckList.add(new Card(suit, cardValue, 2, "2D"));
+                                        break;
+                                    case spade:
+                                        deckList.add(new Card(suit, cardValue, 2, "2S"));
+                                        break;
+                                }
                             }
                             else if (cardValue == Cardvalues.three){
-                                deckList.add(new Card(suit, cardValue, 3));
+                                switch (suit) {
+                                    case heart:
+                                        deckList.add(new Card(suit, cardValue, 3, "3H"));
+                                        break;
+                                    case club:
+                                        deckList.add(new Card(suit, cardValue, 3, "3C"));
+                                        break;
+                                    case diamond:
+                                        deckList.add(new Card(suit, cardValue, 3, "3D"));
+                                        break;
+                                    case spade:
+                                        deckList.add(new Card(suit, cardValue, 3, "3S"));
+                                        break;
+                                }
                             }
                             else if (cardValue == Cardvalues.four){
-                                deckList.add(new Card(suit, cardValue, 4));
+                                switch (suit) {
+                                    case heart:
+                                        deckList.add(new Card(suit, cardValue, 4, "4H"));
+                                        break;
+                                    case club:
+                                        deckList.add(new Card(suit, cardValue, 4, "4C"));
+                                        break;
+                                    case diamond:
+                                        deckList.add(new Card(suit, cardValue, 4, "4D"));
+                                        break;
+                                    case spade:
+                                        deckList.add(new Card(suit, cardValue, 4, "4S"));
+                                        break;
+                                }
                             }
                             else if (cardValue == Cardvalues.five){
-                                deckList.add(new Card(suit, cardValue, 5));
+                                switch (suit) {
+                                    case heart:
+                                        deckList.add(new Card(suit, cardValue, 5, "5H"));
+                                        break;
+                                    case club:
+                                        deckList.add(new Card(suit, cardValue, 5, "5C"));
+                                        break;
+                                    case diamond:
+                                        deckList.add(new Card(suit, cardValue, 5, "5D"));
+                                        break;
+                                    case spade:
+                                        deckList.add(new Card(suit, cardValue, 5, "5S"));
+                                        break;
+                                }
                             }
                             else if (cardValue == Cardvalues.six){
-                                deckList.add(new Card(suit, cardValue, 6));
+                                switch (suit) {
+                                    case heart:
+                                        deckList.add(new Card(suit, cardValue, 6, "6H"));
+                                        break;
+                                    case club:
+                                        deckList.add(new Card(suit, cardValue, 6, "6C"));
+                                        break;
+                                    case diamond:
+                                        deckList.add(new Card(suit, cardValue, 6, "6D"));
+                                        break;
+                                    case spade:
+                                        deckList.add(new Card(suit, cardValue, 6, "6S"));
+                                        break;
+                                }
                             }
                             else if (cardValue == Cardvalues.seven){
-                                deckList.add(new Card(suit, cardValue, 7));
+                                switch (suit) {
+                                    case heart:
+                                        deckList.add(new Card(suit, cardValue, 7, "7H"));
+                                        break;
+                                    case club:
+                                        deckList.add(new Card(suit, cardValue, 7, "7C"));
+                                        break;
+                                    case diamond:
+                                        deckList.add(new Card(suit, cardValue, 7, "7D"));
+                                        break;
+                                    case spade:
+                                        deckList.add(new Card(suit, cardValue, 7, "7S"));
+                                        break;
+                                }
                             }
                             else if (cardValue == Cardvalues.eight){
-                                deckList.add(new Card(suit, cardValue, 8));
+                                switch (suit) {
+                                    case heart:
+                                        deckList.add(new Card(suit, cardValue, 8, "8H"));
+                                        break;
+                                    case club:
+                                        deckList.add(new Card(suit, cardValue, 8, "8C"));
+                                        break;
+                                    case diamond:
+                                        deckList.add(new Card(suit, cardValue, 8, "8D"));
+                                        break;
+                                    case spade:
+                                        deckList.add(new Card(suit, cardValue, 8, "8S"));
+                                        break;
+                                }
                             }
                             else if (cardValue == Cardvalues.nine){
-                                deckList.add(new Card(suit, cardValue, 9));
+                                switch (suit) {
+                                    case heart:
+                                        deckList.add(new Card(suit, cardValue, 9, "9H"));
+                                        break;
+                                    case club:
+                                        deckList.add(new Card(suit, cardValue, 9, "9C"));
+                                        break;
+                                    case diamond:
+                                        deckList.add(new Card(suit, cardValue, 9, "9D"));
+                                        break;
+                                    case spade:
+                                        deckList.add(new Card(suit, cardValue, 9, "9S"));
+                                        break;
+                                }
                             }
-                            else if (cardValue == Cardvalues.ten || cardValue == Cardvalues.jack || cardValue == Cardvalues.queen || cardValue == Cardvalues.king ){
-                                deckList.add(new Card(suit, cardValue, 10));
+                            else if (cardValue == Cardvalues.ten){
+                                switch (suit) {
+                                    case heart:
+                                        deckList.add(new Card(suit, cardValue, 10, "10H"));
+                                        break;
+                                    case club:
+                                        deckList.add(new Card(suit, cardValue, 10, "10C"));
+                                        break;
+                                    case diamond:
+                                        deckList.add(new Card(suit, cardValue, 10, "10D"));
+                                        break;
+                                    case spade:
+                                        deckList.add(new Card(suit, cardValue, 10, "10S"));
+                                        break;
+                                }
+                            }
+                            else if (cardValue == Cardvalues.jack){
+                                switch (suit) {
+                                    case heart:
+                                        deckList.add(new Card(suit, cardValue, 10, "JH"));
+                                        break;
+                                    case club:
+                                        deckList.add(new Card(suit, cardValue, 10, "JC"));
+                                        break;
+                                    case diamond:
+                                        deckList.add(new Card(suit, cardValue, 10, "JD"));
+                                        break;
+                                    case spade:
+                                        deckList.add(new Card(suit, cardValue, 10, "JS"));
+                                        break;
+                                }
+                            }
+                            else if (cardValue == Cardvalues.queen){
+                                switch (suit) {
+                                    case heart:
+                                        deckList.add(new Card(suit, cardValue, 10, "QH"));
+                                        break;
+                                    case club:
+                                        deckList.add(new Card(suit, cardValue, 10, "QC"));
+                                        break;
+                                    case diamond:
+                                        deckList.add(new Card(suit, cardValue, 10, "QD"));
+                                        break;
+                                    case spade:
+                                        deckList.add(new Card(suit, cardValue, 10, "QS"));
+                                        break;
+                                }
+                            }
+                            else if (cardValue == Cardvalues.king){
+                                switch (suit) {
+                                    case heart:
+                                        deckList.add(new Card(suit, cardValue, 10, "KH"));
+                                        break;
+                                    case club:
+                                        deckList.add(new Card(suit, cardValue, 10, "KC"));
+                                        break;
+                                    case diamond:
+                                        deckList.add(new Card(suit, cardValue, 10, "KD"));
+                                        break;
+                                    case spade:
+                                        deckList.add(new Card(suit, cardValue, 10, "KS"));
+                                        break;
+                                }
                             }
                             else if (cardValue == Cardvalues.ace){
-                                deckList.add(new Card(suit, cardValue, 1));
+                                switch (suit) {
+                                    case heart:
+                                        deckList.add(new Card(suit, cardValue, 10, "AH"));
+                                        break;
+                                    case club:
+                                        deckList.add(new Card(suit, cardValue, 10, "AC"));
+                                        break;
+                                    case diamond:
+                                        deckList.add(new Card(suit, cardValue, 10, "AD"));
+                                        break;
+                                    case spade:
+                                        deckList.add(new Card(suit, cardValue, 10, "AS"));
+                                        break;
+                                }
                             }
                         }
 
                 )
         );
-
-        return new Deck(deckList);
+        Deck deck = new Deck();
+        deck.setDeck(deckList);
+        return deck;
 
     }
 

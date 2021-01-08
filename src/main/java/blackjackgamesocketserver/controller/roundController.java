@@ -1,10 +1,7 @@
 package blackjackgamesocketserver.controller;
 
 import blackjackgamesocketserver.logic.roundService;
-import blackjackgamesocketserver.models.Card;
-import blackjackgamesocketserver.models.Deck;
-import blackjackgamesocketserver.models.Player;
-import blackjackgamesocketserver.models.Round;
+import blackjackgamesocketserver.models.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
@@ -60,12 +57,12 @@ public class roundController {
         return player;
     }*/
 
-    @MessageMapping("/dealCards")
+    @MessageMapping("/deal")
     @SendTo("/client")
-    public Round dealInitialCards(Round currentRound) throws Exception{
-        roundService.addInitialCardsToPlayers(currentRound);
-        roundService.addInitialCardsToDealer(currentRound);
-        return currentRound;
+    public BlackJackGame dealInitialCards(BlackJackGame blackJackGame) throws Exception{
+        roundService.addInitialCardsToPlayers(blackJackGame.getCurrentRound());
+        roundService.addInitialCardsToDealer(blackJackGame.getCurrentRound());
+        return blackJackGame;
     }
 
     @MessageMapping("/giveWinnings")

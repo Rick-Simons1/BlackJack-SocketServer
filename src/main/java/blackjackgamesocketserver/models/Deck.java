@@ -7,8 +7,7 @@ public class Deck {
     private List<Card> deck;
 
 
-    public Deck(List<Card> deck) {
-        this.deck = deck;
+    public Deck() {
     }
 
     public List<Card> getDeck() {

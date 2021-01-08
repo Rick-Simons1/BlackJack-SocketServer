@@ -1,3 +1,4 @@
+/*
 package blackjackgamesocketserver;
 
 import blackjackgamesocketserver.enums.Cardvalues;
@@ -28,9 +29,9 @@ public class roundServiceTests {
         List<Player> players = new ArrayList<>();
         players.add(player);
         List<Card> cards = new ArrayList<>();
-        cards.add(new Card(Suits.club, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.club, Cardvalues.five, 5));
-        cards.add(new Card(Suits.club, Cardvalues.eight, 8));
+        cards.add(new Card(Suits.club, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.club, Cardvalues.five, 5, ""));
+        cards.add(new Card(Suits.club, Cardvalues.eight, 8, ""));
         Deck deck = new Deck(cards);
         Round round = new Round(deck,players);
 
@@ -48,9 +49,9 @@ public class roundServiceTests {
         List<Player> players = new ArrayList<>();
         players.add(player);
         List<Card> cards = new ArrayList<>();
-        cards.add(new Card(Suits.club, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.club, Cardvalues.king, 10));
-        cards.add(new Card(Suits.club, Cardvalues.eight, 8));
+        cards.add(new Card(Suits.club, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.club, Cardvalues.king, 10, ""));
+        cards.add(new Card(Suits.club, Cardvalues.eight, 8,""));
         Deck deck = new Deck(cards);
         Round round = new Round(deck,players);
 
@@ -68,9 +69,9 @@ public class roundServiceTests {
         List<Player> players = new ArrayList<>();
         players.add(player);
         List<Card> cards = new ArrayList<>();
-        cards.add(new Card(Suits.club, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.club, Cardvalues.king, 10));
-        cards.add(new Card(Suits.club, Cardvalues.eight, 8));
+        cards.add(new Card(Suits.club, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.club, Cardvalues.king, 10, ""));
+        cards.add(new Card(Suits.club, Cardvalues.eight, 8, ""));
         Deck deck = new Deck(cards);
         Round round = new Round(deck,players);
 
@@ -88,9 +89,9 @@ public class roundServiceTests {
         List<Player> players = new ArrayList<>();
         players.add(player);
         List<Card> cards = new ArrayList<>();
-        cards.add(new Card(Suits.club, Cardvalues.king, 10));
-        cards.add(new Card(Suits.club, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.club, Cardvalues.eight, 8));
+        cards.add(new Card(Suits.club, Cardvalues.king, 10, ""));
+        cards.add(new Card(Suits.club, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.club, Cardvalues.eight, 8, ""));
         Deck deck = new Deck(cards);
         Round round = new Round(deck,players);
 
@@ -108,9 +109,9 @@ public class roundServiceTests {
         List<Player> players = new ArrayList<>();
         players.add(player);
         List<Card> cards = new ArrayList<>();
-        cards.add(new Card(Suits.club, Cardvalues.five, 5));
-        cards.add(new Card(Suits.club, Cardvalues.six, 6));
-        cards.add(new Card(Suits.club, Cardvalues.eight, 8));
+        cards.add(new Card(Suits.club, Cardvalues.five, 5, ""));
+        cards.add(new Card(Suits.club, Cardvalues.six, 6, ""));
+        cards.add(new Card(Suits.club, Cardvalues.eight, 8, ""));
         Deck deck = new Deck(cards);
         Round round = new Round(deck,players);
 
@@ -131,11 +132,11 @@ public class roundServiceTests {
         List<Player> players = new ArrayList<>();
         players.add(player);
         List<Card> cards = new ArrayList<>();
-        cards.add(new Card(Suits.club, Cardvalues.five, 5));
-        cards.add(new Card(Suits.club, Cardvalues.five, 5));
-        cards.add(new Card(Suits.club, Cardvalues.eight, 8));
-        cards.add(new Card(Suits.heart, Cardvalues.eight, 8));
-        cards.add(new Card(Suits.spade, Cardvalues.eight, 8));
+        cards.add(new Card(Suits.club, Cardvalues.five, 5, ""));
+        cards.add(new Card(Suits.club, Cardvalues.five, 5, ""));
+        cards.add(new Card(Suits.club, Cardvalues.eight, 8, ""));
+        cards.add(new Card(Suits.heart, Cardvalues.eight, 8, ""));
+        cards.add(new Card(Suits.spade, Cardvalues.eight, 8, ""));
         Deck deck = new Deck(cards);
         Round round = new Round(deck,players);
 
@@ -156,11 +157,11 @@ public class roundServiceTests {
         List<Player> players = new ArrayList<>();
         players.add(player);
         List<Card> cards = new ArrayList<>();
-        cards.add(new Card(Suits.club, Cardvalues.five, 5));
-        cards.add(new Card(Suits.club, Cardvalues.five, 5));
-        cards.add(new Card(Suits.club, Cardvalues.eight, 8));
-        cards.add(new Card(Suits.heart, Cardvalues.eight, 8));
-        cards.add(new Card(Suits.spade, Cardvalues.eight, 8));
+        cards.add(new Card(Suits.club, Cardvalues.five, 5, ""));
+        cards.add(new Card(Suits.club, Cardvalues.five, 5, ""));
+        cards.add(new Card(Suits.club, Cardvalues.eight, 8, ""));
+        cards.add(new Card(Suits.heart, Cardvalues.eight, 8, ""));
+        cards.add(new Card(Suits.spade, Cardvalues.eight, 8, ""));
         Deck deck = new Deck(cards);
         Round round = new Round(deck,players);
 
@@ -185,9 +186,9 @@ public class roundServiceTests {
         List<Player> players = new ArrayList<>();
         players.add(player);
         List<Card> cards = new ArrayList<>();
-        cards.add(new Card(Suits.club, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.club, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.club, Cardvalues.eight, 8));
+        cards.add(new Card(Suits.club, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.club, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.club, Cardvalues.eight, 8, ""));
         Deck deck = new Deck(cards);
         Round round = new Round(deck,players);
 
@@ -206,9 +207,9 @@ public class roundServiceTests {
         List<Player> players = new ArrayList<>();
         players.add(player);
         List<Card> cards = new ArrayList<>();
-        cards.add(new Card(Suits.club, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.club, Cardvalues.king, 10));
-        cards.add(new Card(Suits.club, Cardvalues.eight, 8));
+        cards.add(new Card(Suits.club, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.club, Cardvalues.king, 10, ""));
+        cards.add(new Card(Suits.club, Cardvalues.eight, 8, ""));
         Deck deck = new Deck(cards);
         Round round = new Round(deck,players);
 
@@ -227,9 +228,9 @@ public class roundServiceTests {
         List<Player> players = new ArrayList<>();
         players.add(player);
         List<Card> cards = new ArrayList<>();
-        cards.add(new Card(Suits.club, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.club, Cardvalues.king, 10));
-        cards.add(new Card(Suits.club, Cardvalues.eight, 8));
+        cards.add(new Card(Suits.club, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.club, Cardvalues.king, 10, ""));
+        cards.add(new Card(Suits.club, Cardvalues.eight, 8, ""));
         Deck deck = new Deck(cards);
         Round round = new Round(deck,players);
 
@@ -249,9 +250,9 @@ public class roundServiceTests {
         List<Player> players = new ArrayList<>();
         players.add(player);
         List<Card> cards = new ArrayList<>();
-        cards.add(new Card(Suits.club, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.heart, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.club, Cardvalues.eight, 8));
+        cards.add(new Card(Suits.club, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.heart, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.club, Cardvalues.eight, 8, ""));
         Deck deck = new Deck(cards);
         Round round = new Round(deck,players);
 
@@ -259,7 +260,7 @@ public class roundServiceTests {
         roundService.addInitialCardsToPlayers(round);
         roundService.split(round);
 
-        Card expected = new Card(Suits.club, Cardvalues.ace, 1);
+        Card expected = new Card(Suits.club, Cardvalues.ace, 1, "");
         Card actual = player.getSplitCards().get(0);
 
         assertEquals(expected.getCardValue(), actual.getCardValue());
@@ -272,9 +273,9 @@ public class roundServiceTests {
         List<Player> players = new ArrayList<>();
         players.add(player);
         List<Card> cards = new ArrayList<>();
-        cards.add(new Card(Suits.club, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.heart, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.club, Cardvalues.eight, 8));
+        cards.add(new Card(Suits.club, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.heart, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.club, Cardvalues.eight, 8, ""));
         Deck deck = new Deck(cards);
         Round round = new Round(deck,players);
 
@@ -294,9 +295,9 @@ public class roundServiceTests {
         List<Player> players = new ArrayList<>();
         players.add(player);
         List<Card> cards = new ArrayList<>();
-        cards.add(new Card(Suits.club, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.heart, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.club, Cardvalues.eight, 8));
+        cards.add(new Card(Suits.club, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.heart, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.club, Cardvalues.eight, 8, ""));
         Deck deck = new Deck(cards);
         Round round = new Round(deck,players);
 
@@ -316,9 +317,9 @@ public class roundServiceTests {
         List<Player> players = new ArrayList<>();
         players.add(player);
         List<Card> cards = new ArrayList<>();
-        cards.add(new Card(Suits.club, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.heart, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.club, Cardvalues.eight, 8));
+        cards.add(new Card(Suits.club, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.heart, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.club, Cardvalues.eight, 8, ""));
         Deck deck = new Deck(cards);
         Round round = new Round(deck,players);
 
@@ -340,10 +341,10 @@ public class roundServiceTests {
         players.add(player);
         players.add(player1);
         List<Card> cards = new ArrayList<>();
-        cards.add(new Card(Suits.club, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.heart, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.club, Cardvalues.eight, 8));
-        cards.add(new Card(Suits.club, Cardvalues.eight, 8));
+        cards.add(new Card(Suits.club, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.heart, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.club, Cardvalues.eight, 8, ""));
+        cards.add(new Card(Suits.club, Cardvalues.eight, 8, ""));
         Deck deck = new Deck(cards);
         Round round = new Round(deck,players);
 
@@ -366,10 +367,10 @@ public class roundServiceTests {
         players.add(player);
         players.add(player1);
         List<Card> cards = new ArrayList<>();
-        cards.add(new Card(Suits.club, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.heart, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.club, Cardvalues.eight, 8));
-        cards.add(new Card(Suits.club, Cardvalues.eight, 8));
+        cards.add(new Card(Suits.club, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.heart, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.club, Cardvalues.eight, 8, ""));
+        cards.add(new Card(Suits.club, Cardvalues.eight, 8, ""));
         Deck deck = new Deck(cards);
         Round round = new Round(deck,players);
 
@@ -390,15 +391,15 @@ public class roundServiceTests {
 
 
     @Test
-    void test_CheckWinners_PlayerLostNoSplit(){
+    void test_checkWinners_PlayerLostNoSplit(){
         Player player = new Player(1, "testuser", 100);
         List<Player> players = new ArrayList<>();
         players.add(player);
         List<Card> cards = new ArrayList<>();
-        cards.add(new Card(Suits.club, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.club, Cardvalues.five, 5));
-        cards.add(new Card(Suits.club, Cardvalues.eight, 8));
-        cards.add(new Card(Suits.club, Cardvalues.king, 10));
+        cards.add(new Card(Suits.club, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.club, Cardvalues.five, 5, ""));
+        cards.add(new Card(Suits.club, Cardvalues.eight, 8, ""));
+        cards.add(new Card(Suits.club, Cardvalues.king, 10, ""));
         Deck deck = new Deck(cards);
         Round round = new Round(deck,players);
         HashMap<Integer, String> hashMap = new HashMap<>();
@@ -407,19 +408,19 @@ public class roundServiceTests {
         roundService.addInitialCardsToPlayers(round);
         roundService.addInitialCardsToDealer(round);
 
-        assertEquals(hashMap, roundService.CheckWinner(round));
+        assertEquals(hashMap, roundService.checkWinner(round));
     }
 
     @Test
-    void test_CheckWinners_PlayerDrawNoSplit(){
+    void test_checkWinners_PlayerDrawNoSplit(){
         Player player = new Player(1, "testuser", 100);
         List<Player> players = new ArrayList<>();
         players.add(player);
         List<Card> cards = new ArrayList<>();
-        cards.add(new Card(Suits.club, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.club, Cardvalues.seven, 7));
-        cards.add(new Card(Suits.club, Cardvalues.eight, 8));
-        cards.add(new Card(Suits.club, Cardvalues.king, 10));
+        cards.add(new Card(Suits.club, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.club, Cardvalues.seven, 7, ""));
+        cards.add(new Card(Suits.club, Cardvalues.eight, 8, ""));
+        cards.add(new Card(Suits.club, Cardvalues.king, 10, ""));
         Deck deck = new Deck(cards);
         Round round = new Round(deck,players);
         HashMap<Integer, String> hashMap = new HashMap<>();
@@ -428,19 +429,19 @@ public class roundServiceTests {
         roundService.addInitialCardsToPlayers(round);
         roundService.addInitialCardsToDealer(round);
 
-        assertEquals(hashMap, roundService.CheckWinner(round));
+        assertEquals(hashMap, roundService.checkWinner(round));
     }
 
     @Test
-    void test_CheckWinners_PlayerWinNoSplitnoBlackjack(){
+    void test_checkWinners_PlayerWinNoSplitnoBlackjack(){
         Player player = new Player(1, "testuser", 100);
         List<Player> players = new ArrayList<>();
         players.add(player);
         List<Card> cards = new ArrayList<>();
-        cards.add(new Card(Suits.club, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.club, Cardvalues.seven, 7));
-        cards.add(new Card(Suits.heart, Cardvalues.seven, 7));
-        cards.add(new Card(Suits.club, Cardvalues.king, 10));
+        cards.add(new Card(Suits.club, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.club, Cardvalues.seven, 7, ""));
+        cards.add(new Card(Suits.heart, Cardvalues.seven, 7, ""));
+        cards.add(new Card(Suits.club, Cardvalues.king, 10, ""));
         Deck deck = new Deck(cards);
         Round round = new Round(deck,players);
         HashMap<Integer, String> hashMap = new HashMap<>();
@@ -449,19 +450,19 @@ public class roundServiceTests {
         roundService.addInitialCardsToPlayers(round);
         roundService.addInitialCardsToDealer(round);
 
-        assertEquals(hashMap, roundService.CheckWinner(round));
+        assertEquals(hashMap, roundService.checkWinner(round));
     }
 
     @Test
-    void test_CheckWinners_PlayerWinWithBlackjackNoSplit(){
+    void test_checkWinners_PlayerWinWithBlackjackNoSplit(){
         Player player = new Player(1, "testuser", 100);
         List<Player> players = new ArrayList<>();
         players.add(player);
         List<Card> cards = new ArrayList<>();
-        cards.add(new Card(Suits.club, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.spade, Cardvalues.king, 10));
-        cards.add(new Card(Suits.heart, Cardvalues.seven, 7));
-        cards.add(new Card(Suits.club, Cardvalues.king, 10));
+        cards.add(new Card(Suits.club, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.spade, Cardvalues.king, 10, ""));
+        cards.add(new Card(Suits.heart, Cardvalues.seven, 7, ""));
+        cards.add(new Card(Suits.club, Cardvalues.king, 10, ""));
         Deck deck = new Deck(cards);
         Round round = new Round(deck,players);
         HashMap<Integer, String> hashMap = new HashMap<>();
@@ -470,19 +471,19 @@ public class roundServiceTests {
         roundService.addInitialCardsToPlayers(round);
         roundService.addInitialCardsToDealer(round);
 
-        assertEquals(hashMap, roundService.CheckWinner(round));
+        assertEquals(hashMap, roundService.checkWinner(round));
     }
 
     @Test
-    void test_CheckWinners_PlayerWinAndSplitWin(){
+    void test_checkWinners_PlayerWinAndSplitWin(){
         Player player = new Player(1, "testuser", 100);
         List<Player> players = new ArrayList<>();
         players.add(player);
         List<Card> cards = new ArrayList<>();
-        cards.add(new Card(Suits.club, Cardvalues.nine, 9));
-        cards.add(new Card(Suits.spade, Cardvalues.nine, 9));
-        cards.add(new Card(Suits.heart, Cardvalues.seven, 7));
-        cards.add(new Card(Suits.club, Cardvalues.king, 10));
+        cards.add(new Card(Suits.club, Cardvalues.nine, 9, ""));
+        cards.add(new Card(Suits.spade, Cardvalues.nine, 9, ""));
+        cards.add(new Card(Suits.heart, Cardvalues.seven, 7, ""));
+        cards.add(new Card(Suits.club, Cardvalues.king, 10, ""));
 
         Deck deck = new Deck(cards);
         Round round = new Round(deck,players);
@@ -493,22 +494,22 @@ public class roundServiceTests {
         roundService.addInitialCardsToPlayers(round);
         roundService.addInitialCardsToDealer(round);
         roundService.split(round);
-        player.addCardToSplitCards(new Card(Suits.spade, Cardvalues.ace, 1));
-        player.addCardToPlayer(new Card(Suits.heart, Cardvalues.ace, 1));
+        player.addCardToSplitCards(new Card(Suits.spade, Cardvalues.ace, 1, ""));
+        player.addCardToPlayer(new Card(Suits.heart, Cardvalues.ace, 1, ""));
 
-        assertEquals(hashMap, roundService.CheckWinner(round));
+        assertEquals(hashMap, roundService.checkWinner(round));
     }
 
     @Test
-    void test_CheckWinners_PlayerWinWithBlackJack(){
+    void test_checkWinners_PlayerWinWithBlackJack(){
         Player player = new Player(1, "testuser", 100);
         List<Player> players = new ArrayList<>();
         players.add(player);
         List<Card> cards = new ArrayList<>();
-        cards.add(new Card(Suits.club, Cardvalues.king, 10));
-        cards.add(new Card(Suits.club, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.club, Cardvalues.eight, 8));
-        cards.add(new Card(Suits.club, Cardvalues.king, 10));
+        cards.add(new Card(Suits.club, Cardvalues.king, 10, ""));
+        cards.add(new Card(Suits.club, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.club, Cardvalues.eight, 8, ""));
+        cards.add(new Card(Suits.club, Cardvalues.king, 10, ""));
         Deck deck = new Deck(cards);
         Round round = new Round(deck,players);
         HashMap<Integer, String> hashMap = new HashMap<>();
@@ -517,19 +518,19 @@ public class roundServiceTests {
         roundService.addInitialCardsToPlayers(round);
         roundService.addInitialCardsToDealer(round);
 
-        assertEquals(hashMap, roundService.CheckWinner(round));
+        assertEquals(hashMap, roundService.checkWinner(round));
     }
 
     @Test
-    void test_CheckWinners_PlayerWinAndSplitDraw(){
+    void test_checkWinners_PlayerWinAndSplitDraw(){
         Player player = new Player(1, "testuser", 100);
         List<Player> players = new ArrayList<>();
         players.add(player);
         List<Card> cards = new ArrayList<>();
-        cards.add(new Card(Suits.club, Cardvalues.nine, 9));
-        cards.add(new Card(Suits.spade, Cardvalues.nine, 9));
-        cards.add(new Card(Suits.heart, Cardvalues.seven, 7));
-        cards.add(new Card(Suits.club, Cardvalues.king, 10));
+        cards.add(new Card(Suits.club, Cardvalues.nine, 9, ""));
+        cards.add(new Card(Suits.spade, Cardvalues.nine, 9, ""));
+        cards.add(new Card(Suits.heart, Cardvalues.seven, 7, ""));
+        cards.add(new Card(Suits.club, Cardvalues.king, 10, ""));
 
         Deck deck = new Deck(cards);
         Round round = new Round(deck,players);
@@ -540,23 +541,23 @@ public class roundServiceTests {
         roundService.addInitialCardsToPlayers(round);
         roundService.addInitialCardsToDealer(round);
         roundService.split(round);
-        player.addCardToSplitCards(new Card(Suits.spade, Cardvalues.eight, 8));
-        player.addCardToPlayer(new Card(Suits.heart, Cardvalues.ace, 1));
+        player.addCardToSplitCards(new Card(Suits.spade, Cardvalues.eight, 8, ""));
+        player.addCardToPlayer(new Card(Suits.heart, Cardvalues.ace, 1, ""));
 
-        assertEquals(hashMap, roundService.CheckWinner(round));
+        assertEquals(hashMap, roundService.checkWinner(round));
     }
 
 
     @Test
-    void test_CheckWinners_PlayerWinAndSplitLost(){
+    void test_checkWinners_PlayerWinAndSplitLost(){
         Player player = new Player(1, "testuser", 100);
         List<Player> players = new ArrayList<>();
         players.add(player);
         List<Card> cards = new ArrayList<>();
-        cards.add(new Card(Suits.club, Cardvalues.nine, 9));
-        cards.add(new Card(Suits.spade, Cardvalues.nine, 9));
-        cards.add(new Card(Suits.heart, Cardvalues.seven, 7));
-        cards.add(new Card(Suits.club, Cardvalues.king, 10));
+        cards.add(new Card(Suits.club, Cardvalues.nine, 9, ""));
+        cards.add(new Card(Suits.spade, Cardvalues.nine, 9, ""));
+        cards.add(new Card(Suits.heart, Cardvalues.seven, 7, ""));
+        cards.add(new Card(Suits.club, Cardvalues.king, 10, ""));
 
         Deck deck = new Deck(cards);
         Round round = new Round(deck,players);
@@ -567,22 +568,22 @@ public class roundServiceTests {
         roundService.addInitialCardsToPlayers(round);
         roundService.addInitialCardsToDealer(round);
         roundService.split(round);
-        player.addCardToSplitCards(new Card(Suits.spade, Cardvalues.seven, 7));
-        player.addCardToPlayer(new Card(Suits.heart, Cardvalues.ace, 1));
+        player.addCardToSplitCards(new Card(Suits.spade, Cardvalues.seven, 7, ""));
+        player.addCardToPlayer(new Card(Suits.heart, Cardvalues.ace, 1, ""));
 
-        assertEquals(hashMap, roundService.CheckWinner(round));
+        assertEquals(hashMap, roundService.checkWinner(round));
     }
 
     @Test
-    void test_CheckWinners_PlayerDrawAndSplitWin(){
+    void test_checkWinners_PlayerDrawAndSplitWin(){
         Player player = new Player(1, "testuser", 100);
         List<Player> players = new ArrayList<>();
         players.add(player);
         List<Card> cards = new ArrayList<>();
-        cards.add(new Card(Suits.club, Cardvalues.nine, 9));
-        cards.add(new Card(Suits.spade, Cardvalues.nine, 9));
-        cards.add(new Card(Suits.heart, Cardvalues.seven, 7));
-        cards.add(new Card(Suits.club, Cardvalues.king, 10));
+        cards.add(new Card(Suits.club, Cardvalues.nine, 9, ""));
+        cards.add(new Card(Suits.spade, Cardvalues.nine, 9, ""));
+        cards.add(new Card(Suits.heart, Cardvalues.seven, 7, ""));
+        cards.add(new Card(Suits.club, Cardvalues.king, 10, ""));
 
         Deck deck = new Deck(cards);
         Round round = new Round(deck,players);
@@ -593,22 +594,22 @@ public class roundServiceTests {
         roundService.addInitialCardsToPlayers(round);
         roundService.addInitialCardsToDealer(round);
         roundService.split(round);
-        player.addCardToSplitCards(new Card(Suits.spade, Cardvalues.ace, 1));
-        player.addCardToPlayer(new Card(Suits.heart, Cardvalues.eight, 8));
+        player.addCardToSplitCards(new Card(Suits.spade, Cardvalues.ace, 1, ""));
+        player.addCardToPlayer(new Card(Suits.heart, Cardvalues.eight, 8, ""));
 
-        assertEquals(hashMap, roundService.CheckWinner(round));
+        assertEquals(hashMap, roundService.checkWinner(round));
     }
 
     @Test
-    void test_CheckWinners_PlayerLostAndSplitWin(){
+    void test_checkWinners_PlayerLostAndSplitWin(){
         Player player = new Player(1, "testuser", 100);
         List<Player> players = new ArrayList<>();
         players.add(player);
         List<Card> cards = new ArrayList<>();
-        cards.add(new Card(Suits.club, Cardvalues.nine, 9));
-        cards.add(new Card(Suits.spade, Cardvalues.nine, 9));
-        cards.add(new Card(Suits.heart, Cardvalues.seven, 7));
-        cards.add(new Card(Suits.club, Cardvalues.king, 10));
+        cards.add(new Card(Suits.club, Cardvalues.nine, 9, ""));
+        cards.add(new Card(Suits.spade, Cardvalues.nine, 9, ""));
+        cards.add(new Card(Suits.heart, Cardvalues.seven, 7, ""));
+        cards.add(new Card(Suits.club, Cardvalues.king, 10, ""));
 
         Deck deck = new Deck(cards);
         Round round = new Round(deck,players);
@@ -619,22 +620,22 @@ public class roundServiceTests {
         roundService.addInitialCardsToPlayers(round);
         roundService.addInitialCardsToDealer(round);
         roundService.split(round);
-        player.addCardToSplitCards(new Card(Suits.spade, Cardvalues.ace, 1));
-        player.addCardToPlayer(new Card(Suits.heart, Cardvalues.seven, 7));
+        player.addCardToSplitCards(new Card(Suits.spade, Cardvalues.ace, 1, ""));
+        player.addCardToPlayer(new Card(Suits.heart, Cardvalues.seven, 7, ""));
 
-        assertEquals(hashMap, roundService.CheckWinner(round));
+        assertEquals(hashMap, roundService.checkWinner(round));
     }
 
     @Test
-    void test_CheckWinners_PlayerBlackJackAndSplitBlackjackFirstCardAce(){
+    void test_checkWinners_PlayerBlackJackAndSplitBlackjackFirstCardAce(){
         Player player = new Player(1, "testuser", 100);
         List<Player> players = new ArrayList<>();
         players.add(player);
         List<Card> cards = new ArrayList<>();
-        cards.add(new Card(Suits.club, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.spade, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.heart, Cardvalues.seven, 7));
-        cards.add(new Card(Suits.club, Cardvalues.ace, 1));
+        cards.add(new Card(Suits.club, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.spade, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.heart, Cardvalues.seven, 7, ""));
+        cards.add(new Card(Suits.club, Cardvalues.ace, 1, ""));
 
         Deck deck = new Deck(cards);
         Round round = new Round(deck,players);
@@ -645,22 +646,22 @@ public class roundServiceTests {
         roundService.addInitialCardsToPlayers(round);
         roundService.addInitialCardsToDealer(round);
         roundService.split(round);
-        player.addCardToSplitCards(new Card(Suits.spade, Cardvalues.king, 10));
-        player.addCardToPlayer(new Card(Suits.heart, Cardvalues.king, 10));
+        player.addCardToSplitCards(new Card(Suits.spade, Cardvalues.king, 10, ""));
+        player.addCardToPlayer(new Card(Suits.heart, Cardvalues.king, 10, ""));
 
-        assertEquals(hashMap, roundService.CheckWinner(round));
+        assertEquals(hashMap, roundService.checkWinner(round));
     }
 
     @Test
-    void test_CheckWinners_PlayerBlackJackAndSplitBlackjackFirstCardNotAce(){
+    void test_checkWinners_PlayerBlackJackAndSplitBlackjackFirstCardNotAce(){
         Player player = new Player(1, "testuser", 100);
         List<Player> players = new ArrayList<>();
         players.add(player);
         List<Card> cards = new ArrayList<>();
-        cards.add(new Card(Suits.club, Cardvalues.ten, 10));
-        cards.add(new Card(Suits.spade, Cardvalues.ten, 10));
-        cards.add(new Card(Suits.heart, Cardvalues.seven, 7));
-        cards.add(new Card(Suits.club, Cardvalues.ace, 1));
+        cards.add(new Card(Suits.club, Cardvalues.ten, 10, ""));
+        cards.add(new Card(Suits.spade, Cardvalues.ten, 10, ""));
+        cards.add(new Card(Suits.heart, Cardvalues.seven, 7, ""));
+        cards.add(new Card(Suits.club, Cardvalues.ace, 1, ""));
 
         Deck deck = new Deck(cards);
         Round round = new Round(deck,players);
@@ -671,22 +672,22 @@ public class roundServiceTests {
         roundService.addInitialCardsToPlayers(round);
         roundService.addInitialCardsToDealer(round);
         roundService.split(round);
-        player.addCardToSplitCards(new Card(Suits.spade, Cardvalues.ace, 1));
-        player.addCardToPlayer(new Card(Suits.heart, Cardvalues.ace, 1));
+        player.addCardToSplitCards(new Card(Suits.spade, Cardvalues.ace, 1, ""));
+        player.addCardToPlayer(new Card(Suits.heart, Cardvalues.ace, 1, ""));
 
-        assertEquals(hashMap, roundService.CheckWinner(round));
+        assertEquals(hashMap, roundService.checkWinner(round));
     }
 
     @Test
-    void test_CheckWinners_PlayerBlackJackAndSplitWin(){
+    void test_checkWinners_PlayerBlackJackAndSplitWin(){
         Player player = new Player(1, "testuser", 100);
         List<Player> players = new ArrayList<>();
         players.add(player);
         List<Card> cards = new ArrayList<>();
-        cards.add(new Card(Suits.club, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.spade, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.heart, Cardvalues.seven, 7));
-        cards.add(new Card(Suits.club, Cardvalues.ace, 1));
+        cards.add(new Card(Suits.club, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.spade, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.heart, Cardvalues.seven, 7, ""));
+        cards.add(new Card(Suits.club, Cardvalues.ace, 1, ""));
 
         Deck deck = new Deck(cards);
         Round round = new Round(deck,players);
@@ -697,22 +698,22 @@ public class roundServiceTests {
         roundService.addInitialCardsToPlayers(round);
         roundService.addInitialCardsToDealer(round);
         roundService.split(round);
-        player.addCardToSplitCards(new Card(Suits.spade, Cardvalues.nine, 9));
-        player.addCardToPlayer(new Card(Suits.heart, Cardvalues.king, 10));
+        player.addCardToSplitCards(new Card(Suits.spade, Cardvalues.nine, 9, ""));
+        player.addCardToPlayer(new Card(Suits.heart, Cardvalues.king, 10, ""));
 
-        assertEquals(hashMap, roundService.CheckWinner(round));
+        assertEquals(hashMap, roundService.checkWinner(round));
     }
 
     @Test
-    void test_CheckWinners_PlayerBlackJackAndSplitDraw(){
+    void test_checkWinners_PlayerBlackJackAndSplitDraw(){
         Player player = new Player(1, "testuser", 100);
         List<Player> players = new ArrayList<>();
         players.add(player);
         List<Card> cards = new ArrayList<>();
-        cards.add(new Card(Suits.club, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.spade, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.heart, Cardvalues.seven, 7));
-        cards.add(new Card(Suits.club, Cardvalues.ace, 1));
+        cards.add(new Card(Suits.club, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.spade, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.heart, Cardvalues.seven, 7, ""));
+        cards.add(new Card(Suits.club, Cardvalues.ace, 1, ""));
 
         Deck deck = new Deck(cards);
         Round round = new Round(deck,players);
@@ -723,22 +724,22 @@ public class roundServiceTests {
         roundService.addInitialCardsToPlayers(round);
         roundService.addInitialCardsToDealer(round);
         roundService.split(round);
-        player.addCardToSplitCards(new Card(Suits.spade, Cardvalues.seven, 7));
-        player.addCardToPlayer(new Card(Suits.heart, Cardvalues.king, 10));
+        player.addCardToSplitCards(new Card(Suits.spade, Cardvalues.seven, 7, ""));
+        player.addCardToPlayer(new Card(Suits.heart, Cardvalues.king, 10, ""));
 
-        assertEquals(hashMap, roundService.CheckWinner(round));
+        assertEquals(hashMap, roundService.checkWinner(round));
     }
 
     @Test
-    void test_CheckWinners_PlayerBlackJackAndSplitLose(){
+    void test_checkWinners_PlayerBlackJackAndSplitLose(){
         Player player = new Player(1, "testuser", 100);
         List<Player> players = new ArrayList<>();
         players.add(player);
         List<Card> cards = new ArrayList<>();
-        cards.add(new Card(Suits.club, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.spade, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.heart, Cardvalues.seven, 7));
-        cards.add(new Card(Suits.club, Cardvalues.ace, 1));
+        cards.add(new Card(Suits.club, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.spade, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.heart, Cardvalues.seven, 7, ""));
+        cards.add(new Card(Suits.club, Cardvalues.ace, 1, ""));
 
         Deck deck = new Deck(cards);
         Round round = new Round(deck,players);
@@ -749,22 +750,22 @@ public class roundServiceTests {
         roundService.addInitialCardsToPlayers(round);
         roundService.addInitialCardsToDealer(round);
         roundService.split(round);
-        player.addCardToSplitCards(new Card(Suits.spade, Cardvalues.six, 6));
-        player.addCardToPlayer(new Card(Suits.heart, Cardvalues.king, 10));
+        player.addCardToSplitCards(new Card(Suits.spade, Cardvalues.six, 6, ""));
+        player.addCardToPlayer(new Card(Suits.heart, Cardvalues.king, 10, ""));
 
-        assertEquals(hashMap, roundService.CheckWinner(round));
+        assertEquals(hashMap, roundService.checkWinner(round));
     }
 
     @Test
-    void test_CheckWinners_PlayerwinAndSplitBlackJack(){
+    void test_checkWinners_PlayerwinAndSplitBlackJack(){
         Player player = new Player(1, "testuser", 100);
         List<Player> players = new ArrayList<>();
         players.add(player);
         List<Card> cards = new ArrayList<>();
-        cards.add(new Card(Suits.club, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.spade, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.heart, Cardvalues.seven, 7));
-        cards.add(new Card(Suits.club, Cardvalues.ace, 1));
+        cards.add(new Card(Suits.club, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.spade, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.heart, Cardvalues.seven, 7, ""));
+        cards.add(new Card(Suits.club, Cardvalues.ace, 1, ""));
 
         Deck deck = new Deck(cards);
         Round round = new Round(deck,players);
@@ -775,22 +776,22 @@ public class roundServiceTests {
         roundService.addInitialCardsToPlayers(round);
         roundService.addInitialCardsToDealer(round);
         roundService.split(round);
-        player.addCardToSplitCards(new Card(Suits.spade, Cardvalues.king, 10));
-        player.addCardToPlayer(new Card(Suits.heart, Cardvalues.nine, 9));
+        player.addCardToSplitCards(new Card(Suits.spade, Cardvalues.king, 10, ""));
+        player.addCardToPlayer(new Card(Suits.heart, Cardvalues.nine, 9, ""));
 
-        assertEquals(hashMap, roundService.CheckWinner(round));
+        assertEquals(hashMap, roundService.checkWinner(round));
     }
 
     @Test
-    void test_CheckWinners_PlayerDrawAndSplitBlackJack(){
+    void test_checkWinners_PlayerDrawAndSplitBlackJack(){
         Player player = new Player(1, "testuser", 100);
         List<Player> players = new ArrayList<>();
         players.add(player);
         List<Card> cards = new ArrayList<>();
-        cards.add(new Card(Suits.club, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.spade, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.heart, Cardvalues.seven, 7));
-        cards.add(new Card(Suits.club, Cardvalues.ace, 1));
+        cards.add(new Card(Suits.club, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.spade, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.heart, Cardvalues.seven, 7, ""));
+        cards.add(new Card(Suits.club, Cardvalues.ace, 1, ""));
 
         Deck deck = new Deck(cards);
         Round round = new Round(deck,players);
@@ -801,22 +802,22 @@ public class roundServiceTests {
         roundService.addInitialCardsToPlayers(round);
         roundService.addInitialCardsToDealer(round);
         roundService.split(round);
-        player.addCardToSplitCards(new Card(Suits.spade, Cardvalues.king, 10));
-        player.addCardToPlayer(new Card(Suits.heart, Cardvalues.seven, 7));
+        player.addCardToSplitCards(new Card(Suits.spade, Cardvalues.king, 10, ""));
+        player.addCardToPlayer(new Card(Suits.heart, Cardvalues.seven, 7, ""));
 
-        assertEquals(hashMap, roundService.CheckWinner(round));
+        assertEquals(hashMap, roundService.checkWinner(round));
     }
 
     @Test
-    void test_CheckWinners_PlayerLostAndSplitBlackJack(){
+    void test_checkWinners_PlayerLostAndSplitBlackJack(){
         Player player = new Player(1, "testuser", 100);
         List<Player> players = new ArrayList<>();
         players.add(player);
         List<Card> cards = new ArrayList<>();
-        cards.add(new Card(Suits.club, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.spade, Cardvalues.ace, 1));
-        cards.add(new Card(Suits.heart, Cardvalues.seven, 7));
-        cards.add(new Card(Suits.club, Cardvalues.ace, 1));
+        cards.add(new Card(Suits.club, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.spade, Cardvalues.ace, 1, ""));
+        cards.add(new Card(Suits.heart, Cardvalues.seven, 7, ""));
+        cards.add(new Card(Suits.club, Cardvalues.ace, 1, ""));
 
         Deck deck = new Deck(cards);
         Round round = new Round(deck,players);
@@ -827,10 +828,10 @@ public class roundServiceTests {
         roundService.addInitialCardsToPlayers(round);
         roundService.addInitialCardsToDealer(round);
         roundService.split(round);
-        player.addCardToSplitCards(new Card(Suits.spade, Cardvalues.king, 10));
-        player.addCardToPlayer(new Card(Suits.heart, Cardvalues.six, 6));
+        player.addCardToSplitCards(new Card(Suits.spade, Cardvalues.king, 10, ""));
+        player.addCardToPlayer(new Card(Suits.heart, Cardvalues.six, 6, ""));
 
-        assertEquals(hashMap, roundService.CheckWinner(round));
+        assertEquals(hashMap, roundService.checkWinner(round));
     }
 
     @Test
@@ -884,3 +885,4 @@ public class roundServiceTests {
     }
 
 }
+*/

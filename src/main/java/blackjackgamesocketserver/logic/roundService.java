@@ -173,7 +173,7 @@ public class roundService {
     }
 
 
-    public HashMap<Integer, String> CheckWinner(Round currentRound){
+    public HashMap<Integer, String> checkWinner(Round currentRound){
         HashMap<Integer, String> results = new HashMap<>();
         List<Player> players = currentRound.getPlayers();
         for (Player player: players) {

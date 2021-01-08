@@ -29,8 +29,14 @@ public class blackjackGameService {
 
         if (round.getPlayers().size() < 5){
             for (int i = round.getPlayers().size(); i < 5; i++) {
-                round.addPlayer(playersWaitingTojoin.get(0));
-                playersWaitingTojoin.remove(0);
+                if (playersWaitingTojoin.size() != 0){
+                    round.addPlayer(playersWaitingTojoin.get(0));
+                    playersWaitingTojoin.remove(0);
+                }
+                else {
+                    break;
+                }
+
             }
         }
         blackJackGame.setCurrentRound(round);
@@ -46,5 +52,9 @@ public class blackjackGameService {
 
     public void createNewGame(){
         blackJackGame = new BlackJackGame();
+    }
+
+    public List<Player> getPlayersWaitingTojoin() {
+        return playersWaitingTojoin;
     }
 }

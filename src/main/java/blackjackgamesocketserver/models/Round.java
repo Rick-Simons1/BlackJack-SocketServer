@@ -1,4 +1,4 @@
-package blackjackgamesocketserver.models;
+    package blackjackgamesocketserver.models;
 
 import java.util.ArrayList;
 import java.util.List;

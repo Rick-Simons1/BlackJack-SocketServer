@@ -39,6 +39,7 @@ public class blackjackGameService {
 
             }
         }
+        round.setCurrentPlayer(round.getPlayers().get(0));
         blackJackGame.setCurrentRound(round);
     }
 

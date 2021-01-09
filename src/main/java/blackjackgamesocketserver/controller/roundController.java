@@ -18,36 +18,36 @@ public class roundController {
 
     @MessageMapping("/hit")
     @SendTo("/client")
-    public Round hit(Round currentRound) throws Exception{
-        roundService.getCard(currentRound);
-        return currentRound;
+    public BlackJackGame hit(BlackJackGame blackJackGame) throws Exception{
+        roundService.getCard(blackJackGame.getCurrentRound());
+        return blackJackGame;
     }
 
     @MessageMapping("/stand")
     @SendTo("/client")
-    public Round stand(Round currentRound) throws Exception{
-        roundService.stand(currentRound);
-        return currentRound;
+    public BlackJackGame stand(BlackJackGame blackJackGame) throws Exception{
+        roundService.stand(blackJackGame.getCurrentRound());
+        return blackJackGame;
     }
 
     @MessageMapping("/split")
     @SendTo("/client")
-    public Round split(Round currentRound) throws Exception{
-        roundService.split(currentRound);
-        return currentRound;
+    public BlackJackGame split(BlackJackGame blackJackGame) throws Exception{
+        roundService.split(blackJackGame.getCurrentRound());
+        return blackJackGame;
     }
 
     @MessageMapping("/double")
     @SendTo("/client")
-    public Round doubleBet(Round currentRound) throws Exception{
-        roundService.doubleBet(currentRound);
-        return currentRound;
+    public BlackJackGame doubleBet(BlackJackGame blackJackGame) throws Exception{
+        roundService.doubleBet(blackJackGame.getCurrentRound());
+        return blackJackGame;
     }
 
     @MessageMapping("/checkWinner")
     @SendTo("/client")
-    public HashMap<Integer, String> checkwinner(Round currentRound) throws Exception{
-        return roundService.checkWinner(currentRound);
+    public HashMap<Integer, String> checkwinner(BlackJackGame blackJackGame) throws Exception{
+        return roundService.checkWinner(blackJackGame.getCurrentRound());
     }
 
     /*@MessageMapping("/bet")

@@ -284,15 +284,17 @@ public class roundService {
 
     public void getCard(Round currentRound){
         Deck deck = currentRound.getDeck();
-        Player player = currentRound.getCurrentPlayer();
-
-        if (player.getContainsSplit()){
-            player.addCardToSplitCards(deck.getDeck().get(0));
-        }else{
-            player.addCardToPlayer(deck.getDeck().get(0));
-        }
-
-        deck.getDeck().remove(0);
+        Player currentPlayer = currentRound.getCurrentPlayer();
+        currentRound.getPlayers().forEach(player -> {
+            if (currentPlayer.getId() == player.getId()){
+                if (player.getContainsSplit()){
+                    player.addCardToSplitCards(deck.getDeck().get(0));
+                }else{
+                    player.addCardToPlayer(deck.getDeck().get(0));
+                }
+                deck.getDeck().remove(0);
+            }
+        });
         currentRound.setDeck(deck);
     }
 

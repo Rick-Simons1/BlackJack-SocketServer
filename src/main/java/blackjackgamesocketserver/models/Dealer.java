@@ -12,6 +12,7 @@ public class Dealer {
     private int totalCardPoints;
     private boolean containsAce;
     private boolean blackjack;
+    private boolean bust;
 
     public Dealer() {
         cards = new ArrayList<Card>();
@@ -28,7 +29,11 @@ public class Dealer {
         }
         if (card.getCardValue() == Cardvalues.ace){
             this.containsAce = true;
+            if (totalCardPoints + 11 <= 21){
+                card.setCardPoints(11);
+            }
         }
+
         cards.add(card);
         this.totalCardPoints += card.getCardPoints();
     }
@@ -79,5 +84,13 @@ public class Dealer {
 
     public void setBlackjack(boolean blackjack) {
         this.blackjack = blackjack;
+    }
+
+    public boolean isBust() {
+        return bust;
+    }
+
+    public void setBust(boolean bust) {
+        this.bust = bust;
     }
 }

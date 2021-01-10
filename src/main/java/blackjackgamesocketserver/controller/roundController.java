@@ -23,6 +23,13 @@ public class roundController {
         return blackJackGame;
     }
 
+    @MessageMapping("/hitDealer")
+    @SendTo("/client")
+    public BlackJackGame hitdealer(BlackJackGame blackJackGame) throws Exception{
+        roundService.getCardDealer(blackJackGame.getCurrentRound());
+        return blackJackGame;
+    }
+
     @MessageMapping("/stand")
     @SendTo("/client")
     public BlackJackGame stand(BlackJackGame blackJackGame) throws Exception{

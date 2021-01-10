@@ -213,16 +213,16 @@ public class roundService {
                             else if (cardValue == Cardvalues.ace){
                                 switch (suit) {
                                     case heart:
-                                        deckList.add(new Card(suit, cardValue, 10, "AH"));
+                                        deckList.add(new Card(suit, cardValue, 1, "AH"));
                                         break;
                                     case club:
-                                        deckList.add(new Card(suit, cardValue, 10, "AC"));
+                                        deckList.add(new Card(suit, cardValue, 1, "AC"));
                                         break;
                                     case diamond:
-                                        deckList.add(new Card(suit, cardValue, 10, "AD"));
+                                        deckList.add(new Card(suit, cardValue, 1, "AD"));
                                         break;
                                     case spade:
-                                        deckList.add(new Card(suit, cardValue, 10, "AS"));
+                                        deckList.add(new Card(suit, cardValue, 1, "AS"));
                                         break;
                                 }
                             }
@@ -245,6 +245,7 @@ public class roundService {
     public void addInitialCardsToPlayers(Round currentRound){
         Deck deck = currentRound.getDeck();
         currentRound.getPlayers().forEach(player -> {
+            player.resetPlayer();
                     for (int i = 0; i < 2; i++) {
                         player.addCardToPlayer(deck.getDeck().get(0));
                         deck.getDeck().remove(0);
@@ -289,8 +290,10 @@ public class roundService {
             if (currentPlayer.getId() == player.getId()){
                 if (player.getContainsSplit()){
                     player.addCardToSplitCards(deck.getDeck().get(0));
+                    checkIfBust(currentRound);
                 }else{
                     player.addCardToPlayer(deck.getDeck().get(0));
+                    checkIfBust(currentRound);
                 }
                 deck.getDeck().remove(0);
             }
@@ -298,13 +301,28 @@ public class roundService {
         currentRound.setDeck(deck);
     }
 
+    public void getCardDealer(Round currentRound){
+        Deck deck = currentRound.getDeck();
+        Dealer dealer = currentRound.getDealer();
+        dealer.addCardToDealer(deck.getDeck().get(0));
+        deck.getDeck().remove(0);
+        currentRound.setDeck(deck);
+        checkIfBust(currentRound);
+    }
+
     public void stand(Round currentRound){
-        Player player = currentRound.getCurrentPlayer();
-        if (player.getContainsSplit()){
-            player.setContainsSplit(false);
-        }else{
-            currentRound.nextPlayer();
-        }
+        currentRound.getPlayers().forEach(player ->{
+            if (currentRound.getCurrentPlayer().getId() == player.getId()){
+                if (player.getContainsSplit()){
+                    player.setContainsSplit(false);
+                    player.setSplitBust(false);
+                    player.setSplitBlackjack(false);
+                }else{
+                    currentRound.nextPlayer();
+                }
+            }
+        });
+
 
     }
 
@@ -329,23 +347,26 @@ public class roundService {
 
     public void split(Round currentRound){
         Player currentPlayer = currentRound.getCurrentPlayer();
-        Boolean allowSplit = checkSplit(currentRound);
+        currentRound.getPlayers().forEach(player ->{
+            if (currentPlayer.getId() == player.getId()){
+                Boolean allowSplit = checkSplit(player.getCards());
+                if (allowSplit){
+                    player.setSplitDeck();
+                    player.setInitialSplitBet();
+                    player.setContainsSplit(true);
+                }
+            }
+        });
 
-        if (allowSplit){
-            currentPlayer.setSplitDeck();
-            currentPlayer.setInitialSplitBet();
-            currentPlayer.setContainsSplit(true);
-        }
 
     }
 
-    public Boolean checkSplit(Round currentRound){
-        List<Card> cards = currentRound.getCurrentPlayer().getCards();
-        if (cards.size() > 2){
+    public Boolean checkSplit(List<Card> listOfCards){
+        if (listOfCards.size() > 2){
             return false;
         }
         else {
-            if (cards.get(0).getCardValue() == cards.get(1).getCardValue()) {
+            if (listOfCards.get(0).getCardValue() == listOfCards.get(1).getCardValue()) {
                 return true;
             } else {
                 return false;
@@ -468,6 +489,41 @@ public class roundService {
     }
     //todo
     //add check to see if current points exceed 21 and if it does it should bust the player and go to the next player.
+
+    private void checkIfBust(Round currentRound){
+        Player currentplayer = currentRound.getCurrentPlayer();
+        Dealer dealer = currentRound.getDealer();
+        currentRound.getPlayers().forEach(player -> {
+            if (currentplayer.getId() == player.getId()){
+                if (player.getContainsSplit()){
+                    int totalsplitPoints = player.getTotalSplitCardPoints();
+                    if (totalsplitPoints > 21){
+                        player.setSplitBust(true);
+                    }
+                    else{
+                        player.setSplitBust(false);
+                    }
+                }
+                else{
+                    int totalPoints = player.getTotalCardPoints();
+                    if (totalPoints > 21) {
+                        player.setBust(true);
+                    }
+                    else{
+                        player.setBust(false);
+                    }
+                }
+            }
+        });
+
+        int totalDealerCardPoints = dealer.getTotalCardPoints();
+        if (totalDealerCardPoints > 21) {
+            dealer.setBust(true);
+        }
+        else {
+            dealer.setBust(false);
+        }
+    }
 
 
 

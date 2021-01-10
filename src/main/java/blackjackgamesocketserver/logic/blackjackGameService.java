@@ -16,16 +16,18 @@ import java.util.List;
 @Service
 public class blackjackGameService {
 
-    private BlackJackGame blackJackGame;
     private List<Player> playersWaitingTojoin = new ArrayList<Player>();
 
 
-    public void nextRound(Deck deck){
+    public void nextRound(Deck deck, BlackJackGame blackJackGame){
+        Round round = new Round(deck);
+
         if (blackJackGame.getCurrentRound() != null){
             blackJackGame.addRound(blackJackGame.getCurrentRound());
+            round.setPlayers(blackJackGame.getCurrentRound().getPlayers());
         }
 
-        Round round = new Round(deck);
+
 
         if (round.getPlayers().size() < 5){
             for (int i = round.getPlayers().size(); i < 5; i++) {
@@ -47,12 +49,10 @@ public class blackjackGameService {
         playersWaitingTojoin.add(player);
     }
 
-    public BlackJackGame getBlackJackGame() {
-        return blackJackGame;
-    }
 
-    public void createNewGame(){
-        blackJackGame = new BlackJackGame();
+    public BlackJackGame createNewGame(){
+        BlackJackGame blackJackGame = new BlackJackGame();
+        return blackJackGame;
     }
 
     public List<Player> getPlayersWaitingTojoin() {

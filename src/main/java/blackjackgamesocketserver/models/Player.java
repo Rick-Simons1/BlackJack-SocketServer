@@ -22,6 +22,8 @@ public class Player {
     private boolean splitContainsAce;
     private boolean blackjack;
     private boolean splitBlackjack;
+    private boolean bust;
+    private boolean splitBust;
 
     public Player(int id, String username, int money) {
         this.id = id;
@@ -217,5 +219,21 @@ public class Player {
 
     public void setSplitBlackjack(boolean splitBlackjack) {
         this.splitBlackjack = splitBlackjack;
+    }
+
+    public boolean isBust() {
+        return bust;
+    }
+
+    public void setBust(boolean bust) {
+        this.bust = bust;
+    }
+
+    public boolean isSplitBust() {
+        return splitBust;
+    }
+
+    public void setSplitBust(boolean splitBust) {
+        this.splitBust = splitBust;
     }
 }

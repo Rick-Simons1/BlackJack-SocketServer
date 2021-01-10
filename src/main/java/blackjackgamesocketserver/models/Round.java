@@ -9,11 +9,13 @@ public class Round {
     private Deck deck;
     private Player currentPlayer;
     private Dealer dealer;
+    private boolean dealersTurn;
 
     public Round(Deck deck) {
         this.players = new ArrayList<>();
         this.deck = deck;
         dealer = new Dealer();
+        this.dealersTurn = false;
     }
 
     public Round(Deck deck, List<Player> players) {
@@ -21,6 +23,7 @@ public class Round {
         this.deck = deck;
         currentPlayer = players.get(0);
         dealer = new Dealer();
+        this.dealersTurn = false;
     }
 
     public List<Player> getPlayers() {
@@ -39,11 +42,25 @@ public class Round {
         int currentPlayerIndex = players.indexOf(currentPlayer);
 
         if (players.size() > 1){
-            Player nextPlayer = players.get(currentPlayerIndex + 1);
-            currentPlayer = nextPlayer;
+            if (players.size() == currentPlayerIndex + 1){
+                this.dealersTurn = true;
+            }
+            else {
+                if (players.get(currentPlayerIndex + 1).isBlackjack()){
+                    if (players.size() == currentPlayerIndex + 2){
+                        this.dealersTurn = true;
+                    }
+                    else {
+                        this.currentPlayer = players.get(currentPlayerIndex + 2);
+                    }
+                }
+                else {
+                    this.currentPlayer = players.get(currentPlayerIndex + 1);
+                }
+            }
         }
         else {
-            currentPlayer = players.get(0);
+            this.dealersTurn = true;
         }
     }
 
@@ -73,5 +90,13 @@ public class Round {
 
     public void setDealer(Dealer dealer) {
         this.dealer = dealer;
+    }
+
+    public boolean isDealersTurn() {
+        return dealersTurn;
+    }
+
+    public void setDealersTurn(boolean dealersTurn) {
+        this.dealersTurn = dealersTurn;
     }
 }

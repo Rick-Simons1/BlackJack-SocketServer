@@ -22,17 +22,18 @@ public class blackjackGameController {
     @MessageMapping("/createGame")
     @SendTo("/client")
     public BlackJackGame createNewGame(Player player){
-        blackjackGameService.createNewGame();
+        BlackJackGame blackJackGame = blackjackGameService.createNewGame();
         blackjackGameService.addPlayer(player);
-        blackjackGameService.nextRound(roundService.shuffleDeck());
-        return blackjackGameService.getBlackJackGame();
+        blackjackGameService.nextRound(roundService.shuffleDeck(), blackJackGame);
+        return blackJackGame;
     }
 
     @MessageMapping("/nextRound")
     @SendTo("/client")
-    public BlackJackGame nextRound(){
-        blackjackGameService.nextRound(roundService.shuffleDeck());
-        return blackjackGameService.getBlackJackGame();
+    public BlackJackGame nextRound(BlackJackGame blackJackGame){
+
+        blackjackGameService.nextRound(roundService.shuffleDeck(), blackJackGame);
+        return blackJackGame;
     }
 
     @MessageMapping("/addPlayer")

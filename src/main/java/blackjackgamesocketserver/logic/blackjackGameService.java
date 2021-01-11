@@ -30,9 +30,12 @@ public class blackjackGameService {
         else {
             round.addPlayer(initialplayer);
         }
+        addWaitingPlayersToGame(round);
+        round.setCurrentPlayer(round.getPlayers().get(0));
+        blackJackGame.setCurrentRound(round);
+    }
 
-
-
+    public void addWaitingPlayersToGame(Round round){
         if (round.getPlayers().size() < 5){
             for (int i = round.getPlayers().size(); i < 5; i++) {
                 if (playersWaitingTojoin.size() != 0){
@@ -45,8 +48,6 @@ public class blackjackGameService {
 
             }
         }
-        round.setCurrentPlayer(round.getPlayers().get(0));
-        blackJackGame.setCurrentRound(round);
     }
 
     public void addPlayer(Player player){

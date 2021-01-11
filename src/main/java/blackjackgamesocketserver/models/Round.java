@@ -39,10 +39,15 @@ public class Round {
     }
 
     public void nextPlayer(){
-        int currentPlayerIndex = players.indexOf(currentPlayer);
+        int currentPlayerIndex = 0;
+        for (Player player: players){
+            if (currentPlayer.getId() == player.getId()){
+                currentPlayerIndex = players.indexOf(player);
+            }
+        }
 
         if (players.size() > 1){
-            if (players.size() == currentPlayerIndex + 1){
+            if (players.size() == (currentPlayerIndex + 1)){
                 this.dealersTurn = true;
             }
             else {

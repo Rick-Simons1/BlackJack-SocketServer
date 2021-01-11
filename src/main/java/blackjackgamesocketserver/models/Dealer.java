@@ -40,10 +40,10 @@ public class Dealer {
 
     public void resetCards(){
         cards = new ArrayList<Card>();
-        this.containsAce = false;
+        /*this.containsAce = false;
         this.blackjack = false;
         this.visibleCard = null;
-        this.totalCardPoints = 0;
+        this.totalCardPoints = 0;*/
     }
 
     public List<Card> getCards() {

@@ -244,29 +244,29 @@ public class roundService {
 
     public void addInitialCardsToPlayers(Round currentRound){
         Deck deck = currentRound.getDeck();
-        currentRound.getPlayers().forEach(player -> {
+        for (Player player: currentRound.getPlayers()){
             player.resetPlayer();
-                    for (int i = 0; i < 2; i++) {
-                        player.addCardToPlayer(deck.getDeck().get(0));
-                        deck.getDeck().remove(0);
-                        currentRound.setDeck(deck);
-                    }
-                    if (player.getContainsAce()){
-                        if (player.getCards().get(0).getCardPoints() == 10 || player.getCards().get(1).getCardPoints() == 10){
-                            player.setBlackjack(true);
-                        }
-                        else {
-                            player.setBlackjack(false);
-                        }
-                    }
-        });
+            for (int i = 0; i < 2; i++) {
+                player.addCardToPlayer(deck.getDeck().get(0));
+                deck.getDeck().remove(0);
+                currentRound.setDeck(deck);
+            }
+            if (player.getContainsAce()){
+                if (player.getCards().get(0).getCardPoints() == 10 || player.getCards().get(1).getCardPoints() == 10){
+                    player.setBlackjack(true);
+                }
+                else {
+                    player.setBlackjack(false);
+                }
+            }
+        }
 
     }
 
     public void addInitialCardsToDealer(Round currentRound){
         Deck deck = currentRound.getDeck();
         Dealer dealer = currentRound.getDealer();
-
+        dealer.resetCards();
         for (int i = 0; i < 2; i++) {
             dealer.addCardToDealer(deck.getDeck().get(0));
             deck.getDeck().remove(0);
@@ -286,7 +286,7 @@ public class roundService {
     public void getCard(Round currentRound){
         Deck deck = currentRound.getDeck();
         Player currentPlayer = currentRound.getCurrentPlayer();
-        currentRound.getPlayers().forEach(player -> {
+        for (Player player: currentRound.getPlayers()){
             if (currentPlayer.getId() == player.getId()){
                 if (player.getContainsSplit()){
                     player.addCardToSplitCards(deck.getDeck().get(0));
@@ -297,7 +297,7 @@ public class roundService {
                 }
                 deck.getDeck().remove(0);
             }
-        });
+        }
         currentRound.setDeck(deck);
     }
 
@@ -311,7 +311,7 @@ public class roundService {
     }
 
     public void stand(Round currentRound){
-        currentRound.getPlayers().forEach(player ->{
+        for (Player player: currentRound.getPlayers()){
             if (currentRound.getCurrentPlayer().getId() == player.getId()){
                 if (player.getContainsSplit()){
                     player.setContainsSplit(false);
@@ -319,9 +319,10 @@ public class roundService {
                     player.setSplitBlackjack(false);
                 }else{
                     currentRound.nextPlayer();
+                    break;
                 }
             }
-        });
+        }
 
 
     }
@@ -347,7 +348,7 @@ public class roundService {
 
     public void split(Round currentRound){
         Player currentPlayer = currentRound.getCurrentPlayer();
-        currentRound.getPlayers().forEach(player ->{
+        for (Player player: currentRound.getPlayers()){
             if (currentPlayer.getId() == player.getId()){
                 Boolean allowSplit = checkSplit(player.getCards());
                 if (allowSplit){
@@ -356,7 +357,7 @@ public class roundService {
                     player.setContainsSplit(true);
                 }
             }
-        });
+        }
 
 
     }
@@ -493,7 +494,7 @@ public class roundService {
     private void checkIfBust(Round currentRound){
         Player currentplayer = currentRound.getCurrentPlayer();
         Dealer dealer = currentRound.getDealer();
-        currentRound.getPlayers().forEach(player -> {
+        for (Player player: currentRound.getPlayers()){
             if (currentplayer.getId() == player.getId()){
                 if (player.getContainsSplit()){
                     int totalsplitPoints = player.getTotalSplitCardPoints();
@@ -514,7 +515,7 @@ public class roundService {
                     }
                 }
             }
-        });
+        }
 
         int totalDealerCardPoints = dealer.getTotalCardPoints();
         if (totalDealerCardPoints > 21) {

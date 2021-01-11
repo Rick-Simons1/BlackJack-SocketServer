@@ -70,7 +70,8 @@ public class Player {
     }
 
     public void resetPlayer(){
-        cards = new ArrayList<Card>();
+        cards = new ArrayList<>();
+        splitCards = new ArrayList<>();
         this.containsSplit = false;
         this.containsAce = false;
         this.splitContainsAce = false;

@@ -17,6 +17,7 @@ import java.util.List;
 public class blackjackGameService {
 
     private List<Player> playersWaitingTojoin = new ArrayList<Player>();
+    private Player initialplayer;
 
 
     public void nextRound(Deck deck, BlackJackGame blackJackGame){
@@ -25,6 +26,9 @@ public class blackjackGameService {
         if (blackJackGame.getCurrentRound() != null){
             blackJackGame.addRound(blackJackGame.getCurrentRound());
             round.setPlayers(blackJackGame.getCurrentRound().getPlayers());
+        }
+        else {
+            round.addPlayer(initialplayer);
         }
 
 
@@ -48,6 +52,11 @@ public class blackjackGameService {
     public void addPlayer(Player player){
         playersWaitingTojoin.add(player);
     }
+
+    public void addInitialPlayer(Player player){
+        this.initialplayer = player;
+    }
+
 
 
     public BlackJackGame createNewGame(){

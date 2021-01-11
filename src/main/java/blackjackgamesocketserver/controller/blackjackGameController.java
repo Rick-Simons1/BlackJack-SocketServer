@@ -23,7 +23,7 @@ public class blackjackGameController {
     @SendTo("/client")
     public BlackJackGame createNewGame(Player player){
         BlackJackGame blackJackGame = blackjackGameService.createNewGame();
-        blackjackGameService.addPlayer(player);
+        blackjackGameService.addInitialPlayer(player);
         blackjackGameService.nextRound(roundService.shuffleDeck(), blackJackGame);
         return blackJackGame;
     }
@@ -38,9 +38,11 @@ public class blackjackGameController {
 
     @MessageMapping("/addPlayer")
     @SendTo("/client")
-    public List<Player> addPlayer(Player player){
+    public void addPlayer(Player player){
         blackjackGameService.addPlayer(player);
+/*
         return blackjackGameService.getPlayersWaitingTojoin();
+*/
     }
 
 

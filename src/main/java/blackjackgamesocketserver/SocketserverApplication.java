@@ -13,7 +13,6 @@ public class SocketserverApplication {
 	public static void main(String[] args) {
 
 		SpringApplication.run(SocketserverApplication.class, args);
-
 	}
 
 

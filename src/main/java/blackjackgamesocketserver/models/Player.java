@@ -13,7 +13,7 @@ public class Player {
     private int money;
     private List<Card> cards;
     private List<Card> splitCards;
-    private int currentBet;
+        private int currentBet;
     private int currentSplitBet;
     private Boolean containsSplit;
     private int totalCardPoints;
@@ -24,6 +24,10 @@ public class Player {
     private boolean splitBlackjack;
     private boolean bust;
     private boolean splitBust;
+    private boolean win;
+    private boolean splitwin;
+    private boolean draw;
+    private boolean splitDraw;
 
     public Player(int id, String username, int money) {
         this.id = id;
@@ -79,7 +83,6 @@ public class Player {
         this.splitBlackjack = false;
         this.totalSplitCardPoints = 0;
         this.totalCardPoints = 0;
-        this.currentBet = 0;
         this.currentSplitBet = 0;
     }
 
@@ -127,9 +130,9 @@ public class Player {
         return currentBet;
     }
 
-    public void setCurrentBet(int currentBet) {
-        this.money -= currentBet ;
-        this.currentBet = currentBet;
+    public void setCurrentBet(int bet) {
+        this.money -= bet ;
+        this.currentBet = bet;
 
     }
 
@@ -236,5 +239,37 @@ public class Player {
 
     public void setSplitBust(boolean splitBust) {
         this.splitBust = splitBust;
+    }
+
+    public boolean isWin() {
+        return win;
+    }
+
+    public void setWin(boolean win) {
+        this.win = win;
+    }
+
+    public boolean isSplitwin() {
+        return splitwin;
+    }
+
+    public void setSplitwin(boolean splitwin) {
+        this.splitwin = splitwin;
+    }
+
+    public boolean isDraw() {
+        return draw;
+    }
+
+    public void setDraw(boolean draw) {
+        this.draw = draw;
+    }
+
+    public boolean isSplitDraw() {
+        return splitDraw;
+    }
+
+    public void setSplitDraw(boolean splitDraw) {
+        this.splitDraw = splitDraw;
     }
 }

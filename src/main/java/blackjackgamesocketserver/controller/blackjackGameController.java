@@ -45,5 +45,12 @@ public class blackjackGameController {
 */
     }
 
+    @MessageMapping("/getGames")
+    @SendTo("/client")
+    public List<BlackJackGame> getGame(){
+        return blackjackGameService.getAllCurrentGames();
+
+    }
+
 
 }

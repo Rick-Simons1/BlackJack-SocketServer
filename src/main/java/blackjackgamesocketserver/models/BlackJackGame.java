@@ -5,7 +5,7 @@ import java.util.List;
 
 public class BlackJackGame {
 
-    private int id;
+    private String id;
     private List<Round> rounds;
     private Round currentRound;
 
@@ -17,8 +17,12 @@ public class BlackJackGame {
         rounds.add(round);
     }
 
-    public int getId() {
+    public String getId() {
         return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public List<Round> getRounds() {

@@ -7,9 +7,6 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 @Controller
 public class roundController {
 
@@ -53,16 +50,21 @@ public class roundController {
 
     @MessageMapping("/checkWinner")
     @SendTo("/client")
-    public HashMap<Integer, String> checkwinner(BlackJackGame blackJackGame) throws Exception{
-        return roundService.checkWinner(blackJackGame.getCurrentRound());
+    public BlackJackGame checkwinner(BlackJackGame blackJackGame) throws Exception{
+        roundService.checkWinner(blackJackGame.getCurrentRound());
+        return blackJackGame;
     }
 
-    /*@MessageMapping("/bet")
+    @MessageMapping("/bet")
     @SendTo("/client")
-    public Player bet(Player player, int bet) throws Exception{
-        roundService.setInitialBet(player, bet);
-        return player;
-    }*/
+    public BlackJackGame bet(BetDTO betDTO) throws Exception{
+        for (Player playerIter: betDTO.blackjackgame.getCurrentRound().getPlayers()){
+            if (playerIter.getId() == betDTO.player.getId()){
+                roundService.setInitialBet(playerIter, betDTO.bet);
+            }
+        }
+        return betDTO.blackjackgame;
+    }
 
     @MessageMapping("/deal")
     @SendTo("/client")

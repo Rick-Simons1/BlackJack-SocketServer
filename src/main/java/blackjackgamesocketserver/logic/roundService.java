@@ -245,7 +245,6 @@ public class roundService {
     public void addInitialCardsToPlayers(Round currentRound){
         Deck deck = currentRound.getDeck();
         for (Player player: currentRound.getPlayers()){
-            player.resetPlayer();
             for (int i = 0; i < 2; i++) {
                 player.addCardToPlayer(deck.getDeck().get(0));
                 deck.getDeck().remove(0);
@@ -376,15 +375,20 @@ public class roundService {
     }
 
 
-    public HashMap<Integer, String> checkWinner(Round currentRound){
-        HashMap<Integer, String> results = new HashMap<>();
+    public void checkWinner(Round currentRound){
+
         List<Player> players = currentRound.getPlayers();
         for (Player player: players) {
             Dealer dealer = currentRound.getDealer();
             int playerPoints = player.getTotalCardPoints();
-            int playerSplitPoints;
+            int playerSplitPoints = player.getTotalSplitCardPoints();;
             int dealerPoints = dealer.getTotalCardPoints();
 
+            if (player.getSplitContainsAce() && player.getContainsSplit()){
+                if (playerSplitPoints + 10 <= 21){
+                    playerSplitPoints += 10;
+                }
+            }
             if (player.getContainsAce()){
                 if (playerPoints + 10 <= 21){
                     playerPoints += 10;
@@ -395,97 +399,167 @@ public class roundService {
                     dealerPoints += 10;
                 }
             }
-            if (player.getContainsSplit()){
-                playerSplitPoints = player.getTotalSplitCardPoints();
-                if (player.getSplitContainsAce()){
-                    if (playerSplitPoints + 10 <= 21){
-                        playerSplitPoints += 10;
+            if (dealerPoints <= 21){
+                if (player.getContainsSplit()){
+                    if (player.isSplitBlackjack() && player.isBlackjack()){
+                        player.setWin(true);
+                        player.setSplitwin(true);
+                        giveWinnings(player);
+
                     }
-                }
-                if (player.isSplitBlackjack() && player.isBlackjack()){
-                    results.put(player.getId(), "playerAndSplitBlackjack");
-                }
-                else if (player.isBlackjack() && !player.isSplitBlackjack()){
-                    if (playerSplitPoints > dealerPoints && playerSplitPoints <= 21){
-                        results.put(player.getId(), "playerBlackJackAndSplitWin");
-                    }
-                    else if (playerSplitPoints == dealerPoints && playerSplitPoints <= 21){
-                        results.put(player.getId(), "playerBlackJackAndSplitDraw");
-                    }
-                    else {
-                        results.put(player.getId(), "playerBlackJackAndSplitLost");
-                    }
-                }
-                else if (!player.isBlackjack() && player.isSplitBlackjack()){
-                    if (playerPoints > dealerPoints && playerPoints <= 21){
-                        results.put(player.getId(), "playerWinAndSplitBlackJack");
-                    }
-                    else if (playerPoints == dealerPoints && playerPoints <= 21){
-                        results.put(player.getId(), "playerDrawAndSplitBlackJack");
-                    }
-                    else {
-                        results.put(player.getId(), "playerLostAndSplitBlackJack");
-                    }
-                }
-                else{
-                    if (playerPoints > dealerPoints && playerPoints <= 21){
+                    else if (player.isBlackjack() && !player.isSplitBlackjack()){
                         if (playerSplitPoints > dealerPoints && playerSplitPoints <= 21){
-                            results.put(player.getId(), "playerWinAndSplitWin");
+                            player.setWin(true);
+                            player.setSplitwin(true);
+                            giveWinnings(player);
+
                         }
                         else if (playerSplitPoints == dealerPoints && playerSplitPoints <= 21){
-                            results.put(player.getId(), "playerWinAndSplitDraw");
+                            player.setWin(true);
+                            player.setSplitDraw(true);
+                            giveWinnings(player);
+
                         }
                         else {
-                            results.put(player.getId(), "playerWinAndSplitLost");
-                        }
+                            player.setWin(true);
+                            giveWinnings(player);
 
+                        }
                     }
-                    else if (playerSplitPoints > dealerPoints && playerSplitPoints <=21){
-                        if (playerPoints == dealerPoints && playerPoints <= 21){
-                            results.put(player.getId(), "playerDrawAndSplitWin");
+                    else if (!player.isBlackjack() && player.isSplitBlackjack()){
+                        if (playerPoints > dealerPoints && playerPoints <= 21){
+                            player.setWin(true);
+                            player.setSplitwin(true);
+                            giveWinnings(player);
+
+                        }
+                        else if (playerPoints == dealerPoints && playerPoints <= 21){
+                            player.setDraw(true);
+                            player.setSplitwin(true);
+                            giveWinnings(player);
+
                         }
                         else {
-                            results.put(player.getId(), "playerLostAndSplitWin");
+                            player.setSplitwin(true);
+                            giveWinnings(player);
+
                         }
                     }
+                    else{
+                        if (playerPoints > dealerPoints && playerPoints <= 21){
+                            if (playerSplitPoints > dealerPoints && playerSplitPoints <= 21){
+                                player.setWin(true);
+                                player.setSplitwin(true);
+                                giveWinnings(player);
+
+                            }
+                            else if (playerSplitPoints == dealerPoints && playerSplitPoints <= 21){
+                                player.setWin(true);
+                                player.setSplitDraw(true);
+                                giveWinnings(player);
+
+                            }
+                            else {
+                                player.setWin(true);
+                                giveWinnings(player);
+
+                            }
+
+                        }
+                        else if (playerSplitPoints > dealerPoints && playerSplitPoints <=21){
+                            if (playerPoints == dealerPoints && playerPoints <= 21){
+                                player.setDraw(true);
+                                player.setSplitwin(true);
+                                giveWinnings(player);
+
+                            }
+                            else {
+                                player.setSplitwin(true);
+                                giveWinnings(player);
+
+                            }
+                        }
 
 
+                    }
+                }
+                else {
+                    if (player.isBlackjack()){
+                        player.setWin(true);
+                        giveWinnings(player);
+
+                    }
+                    else if (playerPoints > dealerPoints && playerPoints <= 21){
+                        player.setWin(true);
+                        giveWinnings(player);
+
+                    }
+                    else if( playerPoints == dealerPoints && playerPoints <=21){
+                        player.setDraw(true);
+                        giveWinnings(player);
+                    }
+                    else{
+                        //results.put(player.getId(), "playerLost");
+                    }
                 }
             }
             else {
-                if (player.isBlackjack()){
-                    results.put(player.getId(), "playerBlackJack");
+                if (player.getContainsSplit()){
+                    if (dealerPoints > 21 && playerPoints <= 21 && playerSplitPoints <= 21){
+                        player.setWin(true);
+                        player.setSplitwin(true);
+                        giveWinnings(player);
+                    }
                 }
-                else if (playerPoints > dealerPoints && playerPoints <= 21){
-                    results.put(player.getId(), "playerWin");
+                else {
+                    if (dealerPoints > 21 && playerPoints <= 21){
+                        player.setWin(true);
+                        giveWinnings(player);
+                    }
                 }
-                else if( playerPoints == dealerPoints && playerPoints <=21){
-                    results.put(player.getId(), "playerDraw");
-                }
-                else{
-                    results.put(player.getId(), "playerLost");
-                }
+
             }
+
         }
-        return results;
+
     }
 
     public void giveWinnings(Player player){
-        if (player.isBlackjack()){
-            int winnings = (int) (player.getCurrentBet() * 2.5);
-            player.addMoney(winnings);
+
+        if (player.getContainsSplit()){
+            if (!player.isSplitBust()){
+                if (player.isSplitDraw()){
+                    int splitWinnings = player.getCurrentSplitBet();
+                    player.addMoney(splitWinnings);
+                }else {
+                    if (player.isSplitBlackjack()){
+                        int splitWinnings = (int) (player.getCurrentSplitBet() * 2.5);
+                        player.addMoney(splitWinnings);
+                    }
+                    else {
+                        int splitWinnings = player.getCurrentSplitBet() * 2;
+                        player.addMoney(splitWinnings);
+                    }
+                }
+
+            }
         }
-        else {
-            int winnings = player.getCurrentBet() * 2;
-            player.addMoney(winnings);
-        }
-        if (player.isSplitBlackjack()){
-            int splitWinnings = (int) (player.getCurrentSplitBet() * 2.5);
-            player.addMoney(splitWinnings);
-        }
-        else {
-            int splitWinnings = player.getCurrentSplitBet() * 2;
-            player.addMoney(splitWinnings);
+        if (!player.isBust()){
+            if (player.isDraw()){
+                int winnings = player.getCurrentBet();
+                player.addMoney(winnings);
+            }
+            else {
+                if (player.isBlackjack()){
+                    int winnings = (int) (player.getCurrentBet() * 2.5);
+                    player.addMoney(winnings);
+                }
+                else {
+                    int winnings = player.getCurrentBet() * 2;
+                    player.addMoney(winnings);
+                }
+            }
+
         }
     }
     //todo

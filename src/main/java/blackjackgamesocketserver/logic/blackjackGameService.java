@@ -23,11 +23,11 @@ public class blackjackGameService {
         Round round = new Round(deck);
 
         if (blackJackGame.getCurrentRound() != null){
-            blackJackGame.addRound(blackJackGame.getCurrentRound());
-            round.setPlayers(blackJackGame.getCurrentRound().getPlayers());
+            //blackJackGame.addRound(blackJackGame.getCurrentRound());
             for (Player player: blackJackGame.getCurrentRound().getPlayers()){
                 player.resetPlayer();
             }
+            round.setPlayers(blackJackGame.getCurrentRound().getPlayers());
         }
         else {
             round.addPlayer(initialplayer);

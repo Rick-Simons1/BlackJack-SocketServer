@@ -13,7 +13,7 @@ public class Player {
     private int money;
     private List<Card> cards;
     private List<Card> splitCards;
-        private int currentBet;
+    private int currentBet;
     private int currentSplitBet;
     private Boolean containsSplit;
     private int totalCardPoints;
@@ -48,10 +48,30 @@ public class Player {
                     this.blackjack = true;
                 }
             }
+            if (totalCardPoints + 11 <= 21){
+                card.setCardPoints(11);
+            }
+            else {
+                card.setCardPoints(1);
+            }
+
         }
         else if (this.containsAce && this.cards.size() == 1 && card.getCardPoints() == 10){
             this.blackjack = true;
         }
+        else if (this.containsAce && totalCardPoints + card.getCardPoints() > 21){
+            for (Card cardIteration: this.cards){
+                if (cardIteration.getCardValue() == Cardvalues.ace){
+                    if (cardIteration.getCardPoints() == 11){
+                        cardIteration.setCardPoints(1);
+                        this.totalCardPoints -= 10;
+                        break;
+                    }
+
+                }
+            }
+        }
+
         cards.add(card);
         this.totalCardPoints += card.getCardPoints();
 
@@ -65,9 +85,27 @@ public class Player {
                     this.splitBlackjack = true;
                 }
             }
+            if (totalSplitCardPoints + 11 <= 21){
+                card.setCardPoints(11);
+            }
+            else {
+                card.setCardPoints(1);
+            }
         }
         else if (this.splitContainsAce && this.splitCards.size() == 1 && card.getCardPoints() == 10){
             this.splitBlackjack = true;
+        }
+        else if (this.containsAce && totalSplitCardPoints + card.getCardPoints() > 21){
+            for (Card cardIteration: this.splitCards){
+                if (cardIteration.getCardValue() == Cardvalues.ace){
+                    if (cardIteration.getCardPoints() == 11){
+                        cardIteration.setCardPoints(1);
+                        this.totalSplitCardPoints -= 10;
+                        break;
+                    }
+
+                }
+            }
         }
         splitCards.add(card);
         this.totalSplitCardPoints += card.getCardPoints();
@@ -81,6 +119,12 @@ public class Player {
         this.splitContainsAce = false;
         this.blackjack = false;
         this.splitBlackjack = false;
+        this.bust = false;
+        this.splitBust = false;
+        this.win = false;
+        this.splitwin = false;
+        this.draw = false;
+        this.splitDraw = false;
         this.totalSplitCardPoints = 0;
         this.totalCardPoints = 0;
         this.currentSplitBet = 0;
@@ -91,7 +135,7 @@ public class Player {
     }
 
     public void removeMoney(int money){
-        this.money =- money;
+        this.money -= money;
     }
 
     public int getId() {
@@ -131,7 +175,7 @@ public class Player {
     }
 
     public void setCurrentBet(int bet) {
-        this.money -= bet ;
+        this.money = this.money -  bet ;
         this.currentBet = bet;
 
     }

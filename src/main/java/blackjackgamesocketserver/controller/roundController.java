@@ -1,5 +1,6 @@
 package blackjackgamesocketserver.controller;
 
+import blackjackgamesocketserver.aiPlayerAlgorithm;
 import blackjackgamesocketserver.logic.roundService;
 import blackjackgamesocketserver.models.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,7 @@ public class roundController {
     @SendTo("/client")
     public BlackJackGame hitdealer(BlackJackGame blackJackGame) throws Exception{
         roundService.getCardDealer(blackJackGame.getCurrentRound());
+        blackJackGame.getCurrentRound().setDealersTurn(false);
         return blackJackGame;
     }
 
@@ -52,6 +54,7 @@ public class roundController {
     @SendTo("/client")
     public BlackJackGame checkwinner(BlackJackGame blackJackGame) throws Exception{
         roundService.checkWinner(blackJackGame.getCurrentRound());
+        blackJackGame.getCurrentRound().setDealersTurn(false);
         return blackJackGame;
     }
 
@@ -74,10 +77,12 @@ public class roundController {
         return blackJackGame;
     }
 
-    @MessageMapping("/giveWinnings")
+   /* @MessageMapping("/giveWinnings")
     @SendTo("/client")
     public Player giveWinnings(Player player) throws Exception{
         roundService.giveWinnings(player);
         return player;
-    }
+    }*/
+
+
 }

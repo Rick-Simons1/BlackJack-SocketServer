@@ -1,5 +1,6 @@
 package blackjackgamesocketserver.controller;
 
+import blackjackgamesocketserver.aiPlayerAlgorithm;
 import blackjackgamesocketserver.logic.blackjackGameService;
 import blackjackgamesocketserver.logic.roundService;
 import blackjackgamesocketserver.models.BlackJackGame;
@@ -50,6 +51,15 @@ public class blackjackGameController {
     public List<BlackJackGame> getGame(){
         return blackjackGameService.getAllCurrentGames();
 
+    }
+
+    @MessageMapping("/aiStart")
+    @SendTo("/client")
+    public BlackJackGame aiStart(BlackJackGame blackJackGame) throws Exception{
+        aiPlayerAlgorithm aiPlayerAlgorithm = new aiPlayerAlgorithm(this.roundService, this.blackjackGameService);
+        aiPlayerAlgorithm.runAiAlgorithm(blackJackGame);
+        blackJackGame.getCurrentRound().getCurrentPlayer().setId(0);
+        return blackJackGame;
     }
 
 

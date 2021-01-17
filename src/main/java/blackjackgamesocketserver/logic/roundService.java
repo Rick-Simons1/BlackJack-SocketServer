@@ -362,7 +362,7 @@ public class roundService {
     }
 
     public Boolean checkSplit(List<Card> listOfCards){
-        if (listOfCards.size() > 2){
+        if (listOfCards.size() != 2){
             return false;
         }
         else {
@@ -562,8 +562,7 @@ public class roundService {
 
         }
     }
-    //todo
-    //add check to see if current points exceed 21 and if it does it should bust the player and go to the next player.
+
 
     private void checkIfBust(Round currentRound){
         Player currentplayer = currentRound.getCurrentPlayer();

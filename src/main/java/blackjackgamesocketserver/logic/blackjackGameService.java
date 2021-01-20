@@ -12,11 +12,10 @@ import java.nio.charset.Charset;
 import java.util.*;
 
 @Service
-public class blackjackGameService {
+public class blackjackGameService implements IBlackjackGameService{
 
     private List<Player> playersWaitingTojoin = new ArrayList<Player>();
     private Player initialplayer;
-    private List<BlackJackGame> allCurrentGames = new ArrayList<>();
 
 
     public void nextRound(Deck deck, BlackJackGame blackJackGame){
@@ -28,6 +27,7 @@ public class blackjackGameService {
                 player.resetPlayer();
             }
             round.setPlayers(blackJackGame.getCurrentRound().getPlayers());
+
         }
         else {
             round.addPlayer(initialplayer);
@@ -52,6 +52,8 @@ public class blackjackGameService {
         }
     }
 
+
+
     public void addPlayer(Player player){
         playersWaitingTojoin.add(player);
     }
@@ -60,12 +62,20 @@ public class blackjackGameService {
         this.initialplayer = player;
     }
 
-
+    public void removePlayer(Player player, BlackJackGame blackJackGame){
+        if (blackJackGame.getCurrentRound().getCurrentPlayer().getId() != player.getId()){
+            for (int i = 0; i < blackJackGame.getCurrentRound().getPlayers().size(); i++) {
+                Player playerx = blackJackGame.getCurrentRound().getPlayers().get(i);
+                if (playerx.getId() == player.getId()){
+                    blackJackGame.getCurrentRound().removePlayer(playerx);
+                }
+            }
+        }
+    }
 
     public BlackJackGame createNewGame(){
         BlackJackGame blackJackGame = new BlackJackGame();
         blackJackGame.setId(generateCode());
-        allCurrentGames.add(blackJackGame);
         return blackJackGame;
     }
 
@@ -81,15 +91,5 @@ public class blackjackGameService {
         return output;
     }
 
-    public List<BlackJackGame> getAllCurrentGames() {
-        return allCurrentGames;
-    }
 
-    public void setAllCurrentGames(List<BlackJackGame> allCurrentGames) {
-        this.allCurrentGames = allCurrentGames;
-    }
-
-    public List<Player> getPlayersWaitingTojoin() {
-        return playersWaitingTojoin;
-    }
 }

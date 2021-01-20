@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 
 @Service
-public class roundService {
+public class roundService implements IRoundService {
 
 
 
@@ -245,17 +245,19 @@ public class roundService {
     public void addInitialCardsToPlayers(Round currentRound){
         Deck deck = currentRound.getDeck();
         for (Player player: currentRound.getPlayers()){
-            for (int i = 0; i < 2; i++) {
-                player.addCardToPlayer(deck.getDeck().get(0));
-                deck.getDeck().remove(0);
-                currentRound.setDeck(deck);
-            }
-            if (player.getContainsAce()){
-                if (player.getCards().get(0).getCardPoints() == 10 || player.getCards().get(1).getCardPoints() == 10){
-                    player.setBlackjack(true);
+            if (player.getCards().size() == 0){
+                for (int i = 0; i < 2; i++) {
+                    player.addCardToPlayer(deck.getDeck().get(0));
+                    deck.getDeck().remove(0);
+                    currentRound.setDeck(deck);
                 }
-                else {
-                    player.setBlackjack(false);
+                if (player.getContainsAce()){
+                    if (player.getCards().get(0).getCardPoints() == 10 || player.getCards().get(1).getCardPoints() == 10){
+                        player.setBlackjack(true);
+                    }
+                    else {
+                        player.setBlackjack(false);
+                    }
                 }
             }
         }
@@ -265,20 +267,23 @@ public class roundService {
     public void addInitialCardsToDealer(Round currentRound){
         Deck deck = currentRound.getDeck();
         Dealer dealer = currentRound.getDealer();
-        dealer.resetCards();
-        for (int i = 0; i < 2; i++) {
-            dealer.addCardToDealer(deck.getDeck().get(0));
-            deck.getDeck().remove(0);
-            currentRound.setDeck(deck);
-        }
-        if (dealer.getContainsAce()){
-            if (dealer.getCards().get(0).getCardPoints() == 10 || dealer.getCards().get(1).getCardPoints() == 10){
-                dealer.setBlackjack(true);
+        if (dealer.getCards().size() == 0){
+            dealer.resetCards();
+            for (int i = 0; i < 2; i++) {
+                dealer.addCardToDealer(deck.getDeck().get(0));
+                deck.getDeck().remove(0);
+                currentRound.setDeck(deck);
             }
-            else {
-                dealer.setBlackjack(false);
+            if (dealer.getContainsAce()){
+                if (dealer.getCards().get(0).getCardPoints() == 10 || dealer.getCards().get(1).getCardPoints() == 10){
+                    dealer.setBlackjack(true);
+                }
+                else {
+                    dealer.setBlackjack(false);
+                }
             }
         }
+
 
     }
 
@@ -373,7 +378,6 @@ public class roundService {
             }
         }
     }
-
 
     public void checkWinner(Round currentRound){
 
@@ -563,8 +567,7 @@ public class roundService {
         }
     }
 
-
-    private void checkIfBust(Round currentRound){
+    public void checkIfBust(Round currentRound){
         Player currentplayer = currentRound.getCurrentPlayer();
         Dealer dealer = currentRound.getDealer();
         for (Player player: currentRound.getPlayers()){

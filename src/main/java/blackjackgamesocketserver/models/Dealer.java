@@ -42,8 +42,8 @@ public class Dealer {
         cards = new ArrayList<Card>();
         /*this.containsAce = false;
         this.blackjack = false;
-        this.visibleCard = null;
-        this.totalCardPoints = 0;*/
+        this.visibleCard = null;*/
+        this.totalCardPoints = 0;
     }
 
     public List<Card> getCards() {

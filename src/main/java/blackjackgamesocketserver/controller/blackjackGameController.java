@@ -3,6 +3,7 @@ package blackjackgamesocketserver.controller;
 import blackjackgamesocketserver.aiPlayerAlgorithm;
 import blackjackgamesocketserver.logic.blackjackGameService;
 import blackjackgamesocketserver.logic.roundService;
+import blackjackgamesocketserver.models.BetDTO;
 import blackjackgamesocketserver.models.BlackJackGame;
 import blackjackgamesocketserver.models.Player;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,6 @@ public class blackjackGameController {
     @MessageMapping("/nextRound")
     @SendTo("/client")
     public BlackJackGame nextRound(BlackJackGame blackJackGame){
-
         blackjackGameService.nextRound(roundService.shuffleDeck(), blackJackGame);
         return blackJackGame;
     }
@@ -44,6 +44,13 @@ public class blackjackGameController {
 /*
         return blackjackGameService.getPlayersWaitingTojoin();
 */
+    }
+
+    @MessageMapping("/removePlayer")
+    @SendTo("/client")
+    public BlackJackGame removePlayer(BetDTO betDTO){
+        blackjackGameService.removePlayer(betDTO.player, betDTO.blackjackgame);
+        return betDTO.blackjackgame;
     }
 
     @MessageMapping("/getGames")

@@ -53,13 +53,6 @@ public class blackjackGameController {
         return betDTO.blackjackgame;
     }
 
-    @MessageMapping("/getGames")
-    @SendTo("/client")
-    public List<BlackJackGame> getGame(){
-        return blackjackGameService.getAllCurrentGames();
-
-    }
-
     @MessageMapping("/aiStart")
     @SendTo("/client")
     public BlackJackGame aiStart(BlackJackGame blackJackGame) throws Exception{

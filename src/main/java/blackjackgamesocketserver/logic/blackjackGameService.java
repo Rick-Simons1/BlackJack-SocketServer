@@ -52,7 +52,9 @@ public class blackjackGameService implements IBlackjackGameService{
         }
     }
 
-
+    public List<Player> getPlayersWaitingTojoin() {
+        return playersWaitingTojoin;
+    }
 
     public void addPlayer(Player player){
         playersWaitingTojoin.add(player);
